@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@layer base {
+  @font-face {
+    font-family: 'B-NAZANIN';
+    src: url('./assets/Fonts/B-NAZANIN.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'AGhasem';
+    src: url('./assets/Fonts/AGhasem.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    direction: rtl;
+  }
+  
+  body {
+    font-family: 'B-NAZANIN', 'Tahoma', 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    direction: rtl;
+  }
+
+  /* RTL specific adjustments */
+  input, textarea, select {
+    text-align: right;
+  }
+
+  /* Custom scrollbar for RTL */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #34eb71;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2dd65f;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#34eb71] hover:bg-[#2dd65f] text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-lg border border-gray-300 transition-all duration-200;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+  }
+
+  /* Persian text utilities */
+  .text-persian {
+    font-family: 'B-NAZANIN', 'Tahoma', 'Arial', sans-serif;
+  }
+
+  .text-ghasem {
+    font-family: 'AGhasem', 'B-NAZANIN', 'Tahoma', 'Arial', sans-serif;
+  }
+
+  /* Custom color utilities */
+  .text-primary {
+    color: #34eb71;
+  }
+
+  .bg-primary {
+    background-color: #34eb71;
+  }
+
+  .border-primary {
+    border-color: #34eb71;
+  }
+
+  /* RTL specific spacing */
+  .rtl-space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  /* Dark mode styles */
+  .dark {
+    @apply bg-gray-900 text-white;
+  }
+
+  .dark .bg-white {
+    @apply bg-gray-800;
+  }
+
+  .dark .text-gray-700 {
+    @apply text-gray-300;
+  }
+
+  .dark .text-gray-800 {
+    @apply text-gray-200;
+  }
+
+  .dark .border-gray-300 {
+    @apply border-gray-600;
+  }
+
+  .dark .bg-gray-50 {
+    @apply bg-gray-700;
+  }
+}
+
+@layer utilities {
+  /* Custom animations for hero section */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes light-glow {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes lamp-sway {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(1deg);
+    }
+    75% {
+      transform: rotate(-1deg);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-light-glow {
+    animation: light-glow 3s ease-in-out infinite;
+  }
+
+  .animate-lamp-sway {
+    animation: lamp-sway 8s ease-in-out infinite;
+  }
+
+  /* Gradient text effect */
+  .text-gradient {
+    background: linear-gradient(135deg, #34eb71, #2dd65f, #28c955);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
